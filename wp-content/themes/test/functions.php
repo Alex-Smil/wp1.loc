@@ -1,0 +1,36 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Smile
+ * Date: 05.07.2019
+ * Time: 0:21
+ */
+
+
+function test_scripts() {
+    // Подключаем стили
+    wp_enqueue_style('test-bootstrap', get_template_directory_uri() . '/' .
+        'assets/bootstrap/css/bootstrap.min.css');
+    //wp_enqueue_style('test-style', get_stylesheet_uri());// В Chrome не работает !!! см.решение ниже
+    wp_enqueue_style('test-style', get_stylesheet_uri(), array(), filemtime( get_template_directory()));
+
+//    wp_enqueue_style('test_style', get_template_directory_uri() . '/' . 'style.css');
+//    echo 'TEST ---' . get_template_directory_uri() . '/' . 'style.css<br>';
+//    echo 'TEST ------' . get_template_directory_uri();
+
+    // Подключаем Last.ver - JQuery
+    wp_deregister_script('jquery'); // Версия по умолч.
+    wp_register_script('jquery', get_template_directory_uri() . '/' . 'jquery-3.3.1.slim.min.js', array(),
+                        false, true);// Новая версия
+    //wp_enqueue_script('jquery'); //Вешаем на хук новую версию, эту часть подгрузим в виде зависимости для popper.min.js
+
+    // Подключаем скрипты
+    wp_enqueue_script('test_popper', get_template_directory_uri() . '/' . 'assets/bootstrap/js/popper.min.js', array('jquery'),
+                        false, true);
+    wp_enqueue_script('test_boostrap_js', get_template_directory_uri() . '/' . 'assets/bootstrap/js/bootstrap.min.js', array('jquery'),
+                        false, true);
+}
+
+add_action('wp_enqueue_scripts', 'test_scripts');
+
+

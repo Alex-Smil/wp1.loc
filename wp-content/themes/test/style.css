@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/*
+Theme Name: Тестовая тема
+Author: Smile
+Author URI: https://wordpress.org/
+Description: Описание тестовой темы
+Requires at least: WordPress 4.9.6
+test test test
+*/
+
+.card {
+    margin-bottom: 30px;
+    /*background: red;*/
+}
