@@ -6,22 +6,33 @@
             <!-- post -->
             <div class="col-md-12">
                 <div class="card">
-                    <?php if(has_post_thumbnail()): ?>
-                        <?php the_post_thumbnail('my-thumb'); ?><!--Если к посту иммется миниатюра-->
-                    <?php else: ?>
-                        <img src="./wp-content/uploads/2019/07/Bear-150x150.jpg" width="150" height="150"><!--Миниатюра по умолч.-->
-                    <?php endif; ?>
-                    <div class="card-body">
+                    <div class="card-header">
                         <h5 class="card-title">
                             <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                        </h5><!-- Выводит в браузер-->
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <?php if(has_post_thumbnail()): ?>
+                            <?php the_post_thumbnail('thumbnail', array('class'=>'float-left mr-3')); ?><!--Если к посту иммется миниатюра-->
+                        <?php else: ?>
+                            <img src="./wp-content/uploads/2019/07/Bear-150x150.jpg" class="float-left mr-3" width="150" height="150"><!--Миниатюра по умолч.-->
+                        <?php endif; ?>
                         <p class="card-text"> <?php the_excerpt();?> </p>
+                    </div>
+                    <div class="card-footer">
                         <a href="<?php the_permalink(); ?>" class="btn btn-primary">Go somewhere</a><!-- Ссылка на текущий пост -->
+
                     </div>
                 </div>
             </div>
         <?php endwhile; ?>
             <!-- post navigation -->
+            <?php the_posts_pagination(array(
+                    'show_all'  => false,
+                    'end_size'  => 1,
+                    'mid_size'  => 2,
+                    'type'      =>'list'
+            )) ?>
         <?php else: ?>
             <!-- no posts found -->
             <p>Постов нет ...</p>
