@@ -33,4 +33,14 @@ function test_scripts() {
 
 add_action('wp_enqueue_scripts', 'test_scripts');
 
+// Регистрирует поддержку новых возможностей темы в WordPress
+// (поддержка миниатюр, форматов записей и т.д.).
+function test_setup() {
+    add_theme_support('post-thumbnails');
+    add_image_size('my-thumb', 100, 100);
+}
+
+// Вызываем test_setup() во время события after_setup_theme
+add_action( 'after_setup_theme', 'test_setup' );
+
 
