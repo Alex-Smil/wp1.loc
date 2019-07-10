@@ -6,6 +6,9 @@
  * Time: 22:38
  */
 ?>
+
+<?php get_header(); ?>
+
 <div class = 'container'>
     <div class = 'row'>
         <?php while(have_posts()) : the_post(); ?>
@@ -24,3 +27,5 @@
         <?php endwhile; ?>
     </div>
 </div>
+
+<?php get_footer(); ?>

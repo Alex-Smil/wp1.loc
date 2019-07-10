@@ -36,7 +36,12 @@ add_action('wp_enqueue_scripts', 'test_scripts');
 // Регистрирует поддержку новых возможностей темы в WordPress
 // (поддержка миниатюр, форматов записей и т.д.).
 function test_setup() {
-    add_theme_support('post-thumbnails');
+    $features = array('post-thumbnails', // Вкл.поддержку миниатюры
+                    'title-tag'); // Вкл. автоматический. динамический <title>
+    foreach($features as $f) {
+        add_theme_support($f);
+    }
+    // Добавляем польз. размер миниатюр
     add_image_size('my-thumb', 100, 100);
 }
 

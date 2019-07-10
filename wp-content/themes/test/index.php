@@ -13,9 +13,13 @@
                     </div>
                     <div class="card-body">
                         <?php if(has_post_thumbnail()): ?>
-                            <?php the_post_thumbnail('thumbnail', array('class'=>'float-left mr-3')); ?><!--Если к посту иммется миниатюра-->
+                            <a href="<?php the_permalink(); ?>">
+                                <?php the_post_thumbnail('thumbnail', array('class'=>'float-left mr-3')); ?><!--Если к посту иммется миниатюра-->
+                            </a>
                         <?php else: ?>
-                            <img src="./wp-content/uploads/2019/07/Bear-150x150.jpg" class="float-left mr-3" width="150" height="150"><!--Миниатюра по умолч.-->
+                            <a href="<?php the_permalink(); ?>">
+                                <img src="./wp-content/uploads/2019/07/Bear-150x150.jpg" class="float-left mr-3" width="150" height="150"><!--Миниатюра по умолч.-->
+                            </a>
                         <?php endif; ?>
                         <p class="card-text"> <?php the_excerpt();?> </p>
                     </div>
