@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b242ff4-a6ee-4890-8dff-8d82ee7626aa" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/test/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/test/footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/test/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/test/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/test/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/test/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/test/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/test/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/test/single.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/test/single.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/test/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/test/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/test/wp_conspest.docx" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/test/wp_conspest.docx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/wp-content/themes/test/functions.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="336">
-              <caret line="45" column="30" lean-forward="true" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+              <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -114,10 +109,10 @@
       <path value="$PROJECT_DIR$/wp-content/themes/twentynineteen/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="454" />
-    <option name="y" value="83" />
-    <option name="width" value="1328" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1944" />
+    <option name="y" value="103" />
+    <option name="width" value="828" />
     <option name="height" value="747" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -225,15 +220,15 @@
       <workItem from="1562439532941" duration="611000" />
       <workItem from="1562440657245" duration="13280000" />
       <workItem from="1562524647177" duration="4631000" />
-      <workItem from="1562620270748" duration="21775000" />
+      <workItem from="1562620270748" duration="23877000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61912000" />
+    <option name="totallyTimeSpent" value="64014000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1944" y="103" width="828" height="747" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.2213467" />
@@ -499,7 +494,7 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/test/functions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
-          <caret line="45" column="30" lean-forward="true" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+          <caret line="48" column="34" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
         </state>
       </provider>
     </entry>
