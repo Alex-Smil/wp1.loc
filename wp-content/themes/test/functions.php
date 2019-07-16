@@ -37,16 +37,25 @@ add_action('wp_enqueue_scripts', 'test_scripts');
  * Регистрирует поддержку новых возможностей темы в WordPress
  * (поддержка миниатюр, форматов записей и т.д.).
  * */
-function test_setup() {
-    $features = array('post-thumbnails', // Вкл.поддержку миниатюры
-                    'title-tag'); // Вкл. автоматический. динамический <title>
+function test_setup()
+{
+    /*Подключение доп.возможностей*/
+    $features = array(
+        'post-thumbnails', // Вкл.поддержку миниатюры
+        'title-tag' // Вкл. автоматический. динамический <title>
+    );
     foreach($features as $f) {
         add_theme_support($f);
     }
-    // Добавляем польз. размер миниатюр
+
+    /*Добавляем польз. размер миниатюр*/
     add_image_size('my-thumb', 100, 100);
 
-    register_nav_menus( array() );
+    /*Регистрация меню*/
+    register_nav_menus( array(
+        'header_menu1' => 'Меню в шапке 1',
+        'footer_menu2' => 'Меню в футере 2'
+    ) );
 }
 
 /*
@@ -57,7 +66,7 @@ add_action( 'after_setup_theme', 'test_setup' );
 /*
  * удаляет H2 из шаблона пагинации
  * */
-add_filter('navigation_markup_template', 'my_navigation_template', 10, 2 );
+add_filter( 'navigation_markup_template', 'my_navigation_template', 10, 2 );
 function my_navigation_template( $template, $class ){
     /*
     Вид базового шаблона:
