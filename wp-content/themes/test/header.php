@@ -19,11 +19,12 @@
     /*
      * Вывод Header Меню */
         wp_nav_menu( array(
-                'theme_location' => 'header_menu1',
-                //'container' => 'nav',
+                'theme_location'  => 'header_menu1',
+                //'container'       => 'nav',
                 'container_class' => 'collapse navbar-collapse',
-                'menu_class' => 'navbar-nav mr-auto',
-                'walker' => new Test_Menu(), //
+                'menu_class'      => 'navbar-nav mr-auto',
+                'container_id'    => 'navbarSupportedContent',
+                'walker'          => new Test_Menu(), //
         ) );
     ?>
 
