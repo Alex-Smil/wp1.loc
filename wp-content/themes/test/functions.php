@@ -6,6 +6,7 @@
  * Time: 0:21
  */
 
+require_once __DIR__ . '/Classes/Test_Menu.php';
 
 function test_scripts() {
     // Подключаем стили
