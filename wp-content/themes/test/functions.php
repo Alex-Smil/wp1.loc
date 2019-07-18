@@ -45,11 +45,23 @@ function test_setup()
     /*Подключение доп.возможностей*/
     $features = array(
         'post-thumbnails', // Вкл.поддержку миниатюры
-        'title-tag' // Вкл. автоматический. динамический <title>
+        'title-tag', // Вкл. автоматический. динамический <title>
+
     );
     foreach($features as $f) {
         add_theme_support($f);
     }
+
+    /*Вкл. настройку логотипа*/
+    add_theme_support('custom-logo', array(
+        'width' => '150',
+        'height' => '40'
+    ) );
+
+    /*Вкл. настройку background-color*/
+    add_theme_support('custom-background', array(
+        'default-color' => 'eeee22', // ! цвет без знака #
+    ) );
 
     /*Добавляем польз. размер миниатюр*/
     add_image_size('my-thumb', 100, 100);
