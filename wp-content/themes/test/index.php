@@ -20,7 +20,7 @@
                                 </a>
                             <?php else: ?>
                                 <a href="<?php the_permalink(); ?>">
-                                    <img src="./wp-content/uploads/2019/07/Bear-150x150.jpg" class="float-left mr-3" width="150" height="150"><!--Миниатюра по умолч.-->
+                                    <img src="/wp-content/uploads/2019/07/Bear-150x150.jpg" class="float-left mr-3" width="150" height="150"><!--Миниатюра по умолч.-->
                                 </a>
                             <?php endif; ?>
                             <p class="card-text"> <?php the_excerpt();?> </p>

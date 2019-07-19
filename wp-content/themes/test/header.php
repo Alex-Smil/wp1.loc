@@ -8,20 +8,21 @@
 <!--    <title>--><?php //echo wp_get_document_title(); ?><!--</title>-->
     <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?> >
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
     <!-- Провереяем имееться ли Лого -->
     <?php if ( has_custom_logo() ) : the_custom_logo(); ?>
         <?php else : ?>
         <a class="navbar-brand" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
     <?php endif; ?>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <?php
-    /*
-     * Вывод Header Меню */
+        /* Вывод Header Меню */
         wp_nav_menu( array(
                 'theme_location'  => 'header_menu1',
                 //'container'       => 'nav',

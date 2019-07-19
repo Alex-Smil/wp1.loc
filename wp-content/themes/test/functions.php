@@ -60,13 +60,14 @@ function test_setup()
 
     /*Вкл. настройку background-color*/
     add_theme_support('custom-background', array(
-        'default-color' => 'eeee22', // ! цвет без знака #
+        'default-color' => 'dbdbdb', // цвет по умолч. !цвет без знака #
+        'default-image' => get_template_directory_uri() . '/assets/images/background.png' // Фоновое изображение по умолчанию
     ) );
 
-    /*Добавляем польз. размер миниатюр*/
+    /* Добавляем польз. размер миниатюр */
     add_image_size('my-thumb', 100, 100);
 
-    /*Регистрация меню*/
+    /* Меню - регистрация */
     register_nav_menus( array(
         'header_menu1' => 'Меню в шапке 1',
         'footer_menu2' => 'Меню в футере 2'
