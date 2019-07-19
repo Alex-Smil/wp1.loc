@@ -52,16 +52,23 @@ function test_setup()
         add_theme_support($f);
     }
 
-    /*Вкл. настройку логотипа*/
+    /* Вкл. логотип */
     add_theme_support('custom-logo', array(
         'width' => '150',
         'height' => '40'
     ) );
 
-    /*Вкл. настройку background-color*/
+    /* Вкл. background-color для body */
     add_theme_support('custom-background', array(
         'default-color' => 'dbdbdb', // цвет по умолч. !цвет без знака #
         'default-image' => get_template_directory_uri() . '/assets/images/background.png' // Фоновое изображение по умолчанию
+    ) );
+
+    /*Вкл. background для шапки */
+    add_theme_support('custom-header', array(
+        'default-image' => get_template_directory_uri() . '/assets/images/coffee.jpg', // Фон.карт.по умолч.
+        'width' => '2000',
+        'height' => '1300'
     ) );
 
     /* Добавляем польз. размер миниатюр */

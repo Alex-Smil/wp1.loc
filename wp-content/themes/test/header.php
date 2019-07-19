@@ -10,8 +10,13 @@
 </head>
 <body <?php body_class(); ?> >
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- Background header-->
+<?php //if (is_home()) : ?>
+<?php if (is_front_page()) : ?>
+    <div class="header-image" style="background: url(<?php echo get_custom_header()->url; ?>) center no-repeat; background-size: cover; height: 50vh; "></div>
+<?php endif; ?>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Провереяем имееться ли Лого -->
     <?php if ( has_custom_logo() ) : the_custom_logo(); ?>
         <?php else : ?>
