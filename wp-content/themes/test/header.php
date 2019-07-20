@@ -10,6 +10,9 @@
 </head>
 <body <?php body_class(); ?> >
 
+<!-- Функции для доступа к настройкам кастомайзера -->
+<?php //debug( get_theme_mods() );//echo get_theme_mod('background_image'); ?>
+
 <!-- Background header-->
 <?php //if (is_home()) : ?>
 <?php if (is_front_page()) : ?>

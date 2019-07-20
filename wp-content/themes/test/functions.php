@@ -8,8 +8,12 @@
 
 require_once __DIR__ . '/Classes/Test_Menu.php';
 
-function test_scripts()
-{
+/*Вспомогательная функц. для разраба, форматированный вывод ассоц. массива*/
+function debug( $data ) {
+    echo '<pre>' . print_r( $data, 1 ) . '</pre>';
+}
+
+function test_scripts() {
     /*
      * Подключаем стили*/
     wp_enqueue_style('test-bootstrap', get_template_directory_uri() . '/' .
@@ -40,8 +44,7 @@ add_action('wp_enqueue_scripts', 'test_scripts');
  * Регистрирует поддержку новых возможностей темы в WordPress
  * (поддержка миниатюр, форматов записей и т.д.).
  * */
-function test_setup()
-{
+function test_setup() {
     /*Подключение доп.возможностей*/
     $features = array(
         'post-thumbnails', // Вкл.поддержку миниатюры
@@ -64,7 +67,7 @@ function test_setup()
         'default-image' => get_template_directory_uri() . '/assets/images/background.png' // Фоновое изображение по умолчанию
     ) );
 
-    /*Вкл. background для шапки */
+    /*Вкл. background-image для шапки */
     add_theme_support('custom-header', array(
         'default-image' => get_template_directory_uri() . '/assets/images/coffee.jpg', // Фон.карт.по умолч.
         'width' => '2000',
@@ -80,19 +83,15 @@ function test_setup()
         'footer_menu2' => 'Меню в футере 2'
     ) );
 }
-
 /*
  * Вызываем test_setup() во время события after_setup_theme
  * */
 add_action( 'after_setup_theme', 'test_setup' );
 
-/*
- * удаляет H2 из шаблона пагинации
- * */
+/* удаляет H2 из шаблона пагинации */
 add_filter( 'navigation_markup_template', 'my_navigation_template', 10, 2 );
 
-function my_navigation_template( $template, $class )
-{
+function my_navigation_template( $template, $class ) {
     /*
     Вид базового шаблона:
     <nav class="navigation %1$s" role="navigation">
@@ -115,8 +114,7 @@ the_posts_pagination( array(
 ) );
 
 /*Регистрируем сайд бар*/
-function test_widgets_init()
-{
+function test_widgets_init() {
     register_sidebar( array(
         'name'        => 'Сайдбар справа',
         'id'          => 'right-sidebar',
@@ -126,3 +124,59 @@ function test_widgets_init()
 /*
  * Вызываем test_widgets_init() при событии 'widgets_init'*/
 add_action('widgets_init', 'test_widgets_init');
+
+
+/*
+ * Customizer
+ * Определим новую настройку и элемент управл. и добавим их в уже предустановленную в WP секцию 'colors'
+ * Через данную функцию мы работаем с 3мя основными элементами кастомайзера секция - эл.управл. - настройка
+ * */
+function test_customize_register( $wp_customize ) {
+    $wp_customize->add_setting( // добавляем в объект $wp_customize настройку
+        'test_link_color',// Наименование настройки
+        array( // массив настроек
+            'default'           => '#007bff', // цвет по умолч.
+            'sanitize_callback' => 'sanitize_hex_color'// валидирует цвета - sanitize_hex_color - встроенная функц. ПРОЧИТАТЬ ПРО ЭТО В ОФ.ДОК. опционально
+    ) );
+    /*
+     * после добавления настройки 'test_link_color' она появится в Get_theme_mods() – список всех опций кастомайзера
+     * или <?php //echo get_theme_mod('test_link_color'); // - отрывок из header.php ?>
+     * */
+
+    /* control(элемент управления) в который будет выведенна настройка 'test_link_color' */
+    $wp_customize->add_control( // далее добавим элемент управления
+        new WP_Customize_Color_Control( // объект этого класса использ. для настроек цвета
+            $wp_customize, // менеджер
+            'test_link_color', // ID
+            array( // массив настроек
+                'label'   => 'Цвет ссылок', // подпись данного поля
+                'section' => 'colors', // секция куда мы хотим добав. наш новый control; colors - предустановленная секция WP.
+                'setting' => 'test_link_color' // наименование настройки которая будет выведенна в данном control, определенна выше.
+            )
+        )
+    );
+}
+/* вешаем 'test_customize_register' на хук 'customize_register' */
+add_action('customize_register', 'test_customize_register');
+
+/*
+ * Для того чтобы вносимые изменения во вновь созданной настройке 'test_link_color'
+ * применялись к нужному нам html элементу и отображались в браузере
+ * необходимо еще описать функц. test_customize_css() в которой будут описаны стили css.
+ * test_customize_css() необходимо повесить на хук 'wp_head',
+ * это нужно для того чтобы стили были выведенны в <header> и могли использоваться в <body>
+ *  */
+function test_customize_css() {
+    $test_link_color = get_theme_mod('test_link_color');
+    echo <<<HEREDOC
+<style type="text/css">
+a { color: $test_link_color; }
+</style>
+HEREDOC;
+
+}
+/*
+ * хук 'wp_head' генерируется в том месте,
+ * где стоит функц.метка wp_head(); - см. в <header> в файле header.php
+ * */
+add_action('wp_head', 'test_customize_css');
