@@ -130,6 +130,8 @@ add_action('widgets_init', 'test_widgets_init');
  * Customizer
  * Определим новую настройку и элемент управл. и добавим их в уже предустановленную в WP секцию 'colors'
  * Через данную функцию мы работаем с 3мя основными элементами кастомайзера секция - эл.управл. - настройка
+ * Добавление и редактирование настроек осущ. посредством методов объекта
+ * $wp_customize - объект класса WP_Customize_Manager
  * */
 function test_customize_register( $wp_customize ) {
     $wp_customize->add_setting( // добавляем в объект $wp_customize настройку
@@ -146,7 +148,7 @@ function test_customize_register( $wp_customize ) {
     /* control(элемент управления) в который будет выведенна настройка 'test_link_color' */
     $wp_customize->add_control( // далее добавим элемент управления
         new WP_Customize_Color_Control( // объект этого класса использ. для настроек цвета
-            $wp_customize, // менеджер
+            $wp_customize, // объект класса WP_Customize_Manager
             'test_link_color', // ID
             array( // массив настроек
                 'label'   => 'Цвет ссылок', // подпись данного поля

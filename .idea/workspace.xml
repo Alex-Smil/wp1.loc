@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b242ff4-a6ee-4890-8dff-8d82ee7626aa" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/test/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/test/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/test/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/test/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/test/wp_conspest.docx" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/test/wp_conspest.docx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -76,8 +74,8 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/test/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="128" selection-start-line="128" selection-end-line="181" selection-end-column="44" />
+            <state relative-caret-position="254">
+              <caret line="149" column="38" lean-forward="true" selection-start-line="149" selection-start-column="38" selection-end-line="149" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -230,12 +228,12 @@
       <workItem from="1562620270748" duration="23877000" />
       <workItem from="1563210808920" duration="33734000" />
       <workItem from="1563476486232" duration="12672000" />
-      <workItem from="1563563006074" duration="13378000" />
+      <workItem from="1563563006074" duration="15298000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123798000" />
+    <option name="totallyTimeSpent" value="125718000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="244" y="2" width="1108" height="747" extended-state="0" />
@@ -576,8 +574,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/test/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="128" selection-start-line="128" selection-end-line="181" selection-end-column="44" />
+        <state relative-caret-position="254">
+          <caret line="149" column="38" lean-forward="true" selection-start-line="149" selection-start-column="38" selection-end-line="149" selection-end-column="38" />
         </state>
       </provider>
     </entry>
