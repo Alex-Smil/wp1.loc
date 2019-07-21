@@ -12,7 +12,7 @@
 
 <!-- Функции для доступа к настройкам кастомайзера -->
 <?php //debug( get_theme_mods() );//echo get_theme_mod('background_image'); ?>
-
+<?php echo get_template_directory_uri() . '/assets/js/test-customize.js'; ?>
 <!-- Background header-->
 <?php //if (is_home()) : ?>
 <?php if (is_front_page()) : ?>

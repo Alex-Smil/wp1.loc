@@ -14,31 +14,48 @@ function debug( $data ) {
 }
 
 function test_scripts() {
-    /*
-     * Подключаем стили*/
+    /* Подключаем стили */
     wp_enqueue_style('test-bootstrap', get_template_directory_uri() . '/' .
         'assets/bootstrap/css/bootstrap.min.css');
     //wp_enqueue_style('test-style', get_stylesheet_uri());// В Chrome не работает !!! см.решение ниже
     wp_enqueue_style('test-style', get_stylesheet_uri(), array(), filemtime( get_template_directory()));
 
-    /*
-     * Подключаем Last.ver - JQuery*/
-    wp_deregister_script('jquery'); // Версия по умолч.
-    wp_register_script('jquery', get_template_directory_uri() . '/' . 'jquery-3.3.1.slim.min.js', array(),
-                        false, true);// Новая версия
-    //wp_enqueue_script('jquery'); //Вешаем на хук новую версию, эту часть подгрузим в виде зависимости для popper.min.js
+    /* Подключаем Last.ver - JQuery */
+    wp_deregister_script('jquery'); // Отключ. старую версию jQuery - Версия по умолч.
+    wp_register_script( // Регистрируем новую версию jquery
+        'jquery', // наименование
+        get_template_directory_uri() . '/assets/js/jquery-3.4.1.min.js',
+        array(),
+        false,
+        true
+    );
 
     /*
-     * Подключаем скрипты*/
-    wp_enqueue_script('test_popper', get_template_directory_uri() . '/' . 'assets/bootstrap/js/popper.min.js', array('jquery'),
-                        false, true);
-    wp_enqueue_script('test_boostrap_js', get_template_directory_uri() . '/' . 'assets/bootstrap/js/bootstrap.min.js', array('jquery'),
-                        false, true);
+     * wp_enqueue_script('jquery');
+     * Подключать новую версию jquery на прямую не обязательно,
+     * библ. jquery можно подгрузить в виде зависимости для скрипта popper.min.js
+     * */
+
+    /* Подключаем bootstrap скрипты */
+    wp_enqueue_script(
+        'test_popper',
+        get_template_directory_uri() . '/assets/bootstrap/js/popper.min.js',
+        array('jquery'),
+        false,
+        true);
+
+    wp_enqueue_script(
+        'test_boostrap_js',
+        get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js',
+        array('jquery'),
+        false,
+        true
+    );
 }
 
-/*
- * Подключение скриптов и стилей вешаем на хук 'wp_enqueue_scripts' */
+/* Подключение скриптов и стилей вешаем на хук 'wp_enqueue_scripts' */
 add_action('wp_enqueue_scripts', 'test_scripts');
+
 
 /*
  * Регистрирует поддержку новых возможностей темы в WordPress
@@ -49,8 +66,8 @@ function test_setup() {
     $features = array(
         'post-thumbnails', // Вкл.поддержку миниатюры
         'title-tag', // Вкл. автоматический. динамический <title>
-
     );
+
     foreach($features as $f) {
         add_theme_support($f);
     }
@@ -138,7 +155,8 @@ function test_customize_register( $wp_customize ) {
         'test_link_color',// Наименование настройки
         array( // массив настроек
             'default'           => '#007bff', // цвет по умолч.
-            'sanitize_callback' => 'sanitize_hex_color'// валидирует цвета - sanitize_hex_color - встроенная функц. ПРОЧИТАТЬ ПРО ЭТО В ОФ.ДОК. опционально
+            'sanitize_callback' => 'sanitize_hex_color',// валидирует цвета - sanitize_hex_color - встроенная функц. ПРОЧИТАТЬ ПРО ЭТО В ОФ.ДОК. опционально
+            'transport'         => 'postMessage' // асинхрон. перезагрузка части страницы
     ) );
     /*
      * после добавления настройки 'test_link_color' она появится в Get_theme_mods() – список всех опций кастомайзера
@@ -182,3 +200,17 @@ HEREDOC;
  * где стоит функц.метка wp_head(); - см. в <header> в файле header.php
  * */
 add_action('wp_head', 'test_customize_css');
+
+
+/* Подключение файла test-customize.js для асинхронной работы настроек в кастомайзере*/
+function test_customize_js() {
+    wp_enqueue_script( // подключение js скрипта для асинхорон. работы кастомайзера
+        'test-customizer', // ID
+        get_template_directory_uri() . '/assets/js/test-customize.js', // путь к файлу
+        array( 'jquery', 'customize-preview' ), // массив зависимостей, которые будут полключ. перед загрузкой скрипта test-customize.js
+        '',
+        true // подключаем скрипт в футере
+    );
+}
+/* вешаем на хук */
+add_action('customize_preview_init', 'test_customize_js');
