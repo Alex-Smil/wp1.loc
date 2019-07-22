@@ -175,6 +175,25 @@ function test_customize_register( $wp_customize ) {
             )
         )
     );
+
+    /*
+     * Les 23 - adding custom section
+     * */
+    $wp_customize->add_section( 'test_site_data', array(
+        'title'    => 'Информация сайта',
+        'priority' => 30 // Порядковый номер места среди других секций.
+    ) );
+
+    $wp_customize->add_setting( 'test_phone', array(
+        'default'   => '',
+        'transport' => 'postMessage' // асинхрон. перезагрузка части страницы
+    ) );
+
+    $wp_customize->add_control( 'test_phone', array(
+        'label'   => 'Телефон',
+        'section' => 'test_site_data',
+        'type'    => 'text' // by default
+    ) );
 }
 /* вешаем 'test_customize_register' на хук 'customize_register' */
 add_action('customize_register', 'test_customize_register');

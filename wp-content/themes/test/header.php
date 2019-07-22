@@ -12,7 +12,9 @@
 
 <!-- Функции для доступа к настройкам кастомайзера -->
 <?php //debug( get_theme_mods() );//echo get_theme_mod('background_image'); ?>
-<?php echo get_template_directory_uri() . '/assets/js/test-customize.js'; ?>
+<?php //echo get_template_directory_uri() . '/assets/js/test-customize.js'; ?>
+<?php //echo get_theme_mod('test_phone'); ?>
+
 <!-- Background header-->
 <?php //if (is_home()) : ?>
 <?php if (is_front_page()) : ?>
@@ -29,17 +31,31 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <?php
-        /* Вывод Header Меню */
+        /*
+         * Вывод Header Меню
+         * Для урок 23 придется убрать некоторые аргументы из wp_nav_menu()
+         * так как наша меню уже обернута в
+         * <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         * а в этот <div ...> нам будет необходимо поместить например поиск.систему или еще что-либо
+         * поэтому нам не надо оборачивать меню в контейнер ('container_class' => 'collapse navbar-collapse')
+         * с помощью функции wp_nav_menu().
+         * Мы обернем меню в <div class="collapse navbar ......> самостоятельно.
+         * */
         wp_nav_menu( array(
                 'theme_location'  => 'header_menu1',
-                //'container'       => 'nav',
-                'container_class' => 'collapse navbar-collapse',
+                'container'       => '', // оборачивать меню в контейнер <div> не надо
                 'menu_class'      => 'navbar-nav mr-auto',
                 'container_id'    => 'navbarSupportedContent',
                 'walker'          => new Test_Menu(), //
         ) );
     ?>
+        <p class="test-phone">
+            <span>Телефон: <?php echo get_theme_mod('test_phone'); ?></span>
+        </p>
+    </div>
 
 <!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
 <!--        <ul class="navbar-nav mr-auto">-->

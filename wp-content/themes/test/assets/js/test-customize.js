@@ -2,7 +2,12 @@
     wp.customize( 'test_link_color', function( value ) {
         value.bind( function( newval ) {
             $('a').css('color', newval);
-            // console.log('TEST of test-customize.js');
+        } );
+    } );
+
+    wp.customize( 'test_phone', function( value ) {
+        value.bind( function( newval ) {
+            $('.test-phone span').text(newval);
         } );
     } );
 })(jQuery);
