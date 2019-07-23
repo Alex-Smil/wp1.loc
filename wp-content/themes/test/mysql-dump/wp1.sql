@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июл 23 2019 г., 14:09
+-- Время создания: Июл 23 2019 г., 15:31
 -- Версия сервера: 5.7.16
 -- Версия PHP: 7.1.0
 
@@ -1687,7 +1687,7 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (50, 1, 'nav_menu_recently_edited', '196'),
 (51, 1, 'managenav-menuscolumnshidden', 'a:5:{i:0;s:11:\"link-target\";i:1;s:11:\"css-classes\";i:2;s:3:\"xfn\";i:3;s:11:\"description\";i:4;s:15:\"title-attribute\";}'),
 (52, 1, 'metaboxhidden_nav-menus', 'a:1:{i:0;s:12:\"add-post_tag\";}'),
-(53, 1, 'session_tokens', 'a:1:{s:64:\"9b1aeffb42b4f910b677713d03c7a16631cf88e9ae85b834f49c5f85df162ecf\";a:4:{s:10:\"expiration\";i:1564637726;s:2:\"ip\";s:9:\"127.0.0.1\";s:2:\"ua\";s:108:\"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36\";s:5:\"login\";i:1563428126;}}');
+(53, 1, 'session_tokens', 'a:2:{s:64:\"9b1aeffb42b4f910b677713d03c7a16631cf88e9ae85b834f49c5f85df162ecf\";a:4:{s:10:\"expiration\";i:1564637726;s:2:\"ip\";s:9:\"127.0.0.1\";s:2:\"ua\";s:108:\"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36\";s:5:\"login\";i:1563428126;}s:64:\"d312f5226b55be4616104dd2db50edb63f8aa7cd37afb84fb23ed6b4ac25a62d\";a:4:{s:10:\"expiration\";i:1565090350;s:2:\"ip\";s:9:\"127.0.0.1\";s:2:\"ua\";s:108:\"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36\";s:5:\"login\";i:1563880750;}}');
 
 -- --------------------------------------------------------
 
