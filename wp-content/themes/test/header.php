@@ -53,7 +53,7 @@
         ) );
     ?>
         <p class="test-phone">
-            <span>Телефон: <?php echo get_theme_mod('test_phone'); ?></span>
+            Телефон: <span><?php echo get_theme_mod('test_phone'); ?></span>
         </p>
     </div>
 
