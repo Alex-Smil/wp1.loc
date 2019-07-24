@@ -158,10 +158,6 @@ function test_customize_register( $wp_customize ) {
             'sanitize_callback' => 'sanitize_hex_color',// валидирует цвета - sanitize_hex_color - встроенная функц. ПРОЧИТАТЬ ПРО ЭТО В ОФ.ДОК. опционально
             'transport'         => 'postMessage' // асинхрон. перезагрузка части страницы
     ) );
-    /*
-     * после добавления настройки 'test_link_color' она появится в Get_theme_mods() – список всех опций кастомайзера
-     * или <?php //echo get_theme_mod('test_link_color'); // - отрывок из header.php ?>
-     * */
 
     /* control(элемент управления) в который будет выведенна настройка 'test_link_color' */
     $wp_customize->add_control( // далее добавим элемент управления
@@ -189,14 +185,36 @@ function test_customize_register( $wp_customize ) {
         'transport' => 'postMessage' // асинхрон. перезагрузка части страницы
     ) );
 
+    //unset( $wp_customize->test_phone_set );
+    //delete_option('test_phone_set');
+    //$wp_customize->remove_setting('test_phone_set');
+    //remove_theme_mod( 'test_phone_set' );
+    //unset( $wp_customize->settings[ 'test_phone_set' ] );
+    //remove_theme_mod('test_phone_set');
+
     $wp_customize->add_control( 'test_phone', array(
         'label'   => 'Телефон',
-        'section' => 'test_site_data',
+        'section' => 'test_site_data', // id секции, куда поместить
         'type'    => 'text' // by default
+    ) );
+
+
+    /**/
+    $wp_customize->add_setting( 'test_show_phone', array(
+        'default'   => true, // true или false в данном параметре говорит WP, что мы хотим использ. именно checkbox
+        'transport' => 'postMessage' // асинхрон. перезагрузка части страницы
+    ) );
+
+    $wp_customize->add_control( 'test_show_phone', array(
+        'label'   => 'Показывать Телефон',
+        'section' => 'test_site_data', // id секции, куда поместить
+        'type'    => 'checkbox'
     ) );
 }
 /* вешаем 'test_customize_register' на хук 'customize_register' */
 add_action('customize_register', 'test_customize_register');
+
+
 
 /*
  * Для того чтобы вносимые изменения во вновь созданной настройке 'test_link_color'

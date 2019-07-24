@@ -1,0 +1,21 @@
+****************************************************************
+***********    Ќе получаетс€ удалить настройку    **************
+****    добавленную при помощи $wp_customize->add_setting    ***
+****************************************************************
+
+$wp_customize->add_setting( 'test_phone', array(
+        'default'   => '',
+        'transport' => 'postMessage' // асинхрон. перезагрузка части страницы
+    ) );
+
+
+//unset( $wp_customize->test_phone_set );
+    //delete_option('test_phone_set');
+    //$wp_customize->remove_setting('test_phone_set');
+    //remove_theme_mod( 'test_phone_set' );
+    //unset( $wp_customize->settings[ 'test_phone_set' ] );
+    //remove_theme_mod('test_phone_set');
+
+не работают.
+
+все выше описанное вызываетсч€ на хук 'customize_register'
