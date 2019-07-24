@@ -72,6 +72,12 @@ function test_setup() {
         add_theme_support($f);
     }
 
+    /* вкл. поддержку мультиязычности */
+    load_theme_textdomain(
+        'test', // domain называют по имени папки с темой
+        get_template_directory() . '/languages' // нужен полный физ. путь! get_template_directory_uri() не подойдет
+    );
+
     /* Вкл. логотип */
     add_theme_support('custom-logo', array(
         'width' => '150',
@@ -96,14 +102,15 @@ function test_setup() {
 
     /* Меню - регистрация */
     register_nav_menus( array(
-        'header_menu1' => 'Меню в шапке 1',
-        'footer_menu2' => 'Меню в футере 2'
+        'header_menu1' => __('Меню в шапке 1', 'test'),
+        'footer_menu2' => __('Меню в футере 2', 'test')
     ) );
 }
 /*
  * Вызываем test_setup() во время события after_setup_theme
  * */
 add_action( 'after_setup_theme', 'test_setup' );
+
 
 /* удаляет H2 из шаблона пагинации */
 add_filter( 'navigation_markup_template', 'my_navigation_template', 10, 2 );
@@ -133,9 +140,9 @@ the_posts_pagination( array(
 /*Регистрируем сайд бар*/
 function test_widgets_init() {
     register_sidebar( array(
-        'name'        => 'Сайдбар справа',
+        'name'        => __('Сайдбар справа', 'test'),
         'id'          => 'right-sidebar',
-        'description' => 'Область для виджетов в сайдбаре справа'
+        'description' => __('Область для виджетов в сайдбаре справа', 'test')
     ) );
 }
 /*
@@ -165,7 +172,7 @@ function test_customize_register( $wp_customize ) {
             $wp_customize, // объект класса WP_Customize_Manager
             'test_link_color', // ID
             array( // массив настроек
-                'label'   => 'Цвет ссылок', // подпись данного поля
+                'label'   => __('Цвет ссылок', 'test'), // подпись данного поля
                 'section' => 'colors', // секция куда мы хотим добав. наш новый control; colors - предустановленная секция WP.
                 'setting' => 'test_link_color' // наименование настройки которая будет выведенна в данном control, определенна выше.
             )
@@ -176,7 +183,7 @@ function test_customize_register( $wp_customize ) {
      * Les 23 - adding custom section
      * */
     $wp_customize->add_section( 'test_site_data', array(
-        'title'    => 'Информация сайта',
+        'title'    => __('Информация сайта', 'test'),
         'priority' => 30 // Порядковый номер места среди других секций.
     ) );
 
@@ -193,7 +200,7 @@ function test_customize_register( $wp_customize ) {
     //remove_theme_mod('test_phone_set');
 
     $wp_customize->add_control( 'test_phone', array(
-        'label'   => 'Телефон',
+        'label'   => __('Телефон', 'test'),
         'section' => 'test_site_data', // id секции, куда поместить
         'type'    => 'text' // by default
     ) );
@@ -206,7 +213,7 @@ function test_customize_register( $wp_customize ) {
     ) );
 
     $wp_customize->add_control( 'test_show_phone', array(
-        'label'   => 'Показывать Телефон',
+        'label'   => __('Показывать Телефон', 'test'),
         'section' => 'test_site_data', // id секции, куда поместить
         'type'    => 'checkbox'
     ) );

@@ -27,8 +27,9 @@
                                 <p class="card-text"> <?php the_excerpt();?> </p>
                             </div>
                             <div class="card-footer">
-                                <a href="<?php the_permalink(); ?>" class="btn btn-primary">Go somewhere</a><!-- Ссылка на текущий пост -->
-
+                                <a href="<?php the_permalink(); ?>" class="btn btn-primary">
+                                    <?php _e('Читать далее', 'test'); // 2й параметр это text domain?>
+                                </a><!-- Ссылка на текущий пост -->
                             </div>
                         </div>
                     </div>
