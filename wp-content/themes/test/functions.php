@@ -258,3 +258,8 @@ function test_customize_js() {
 }
 /* вешаем на хук */
 add_action('customize_preview_init', 'test_customize_js');
+
+/*
+ * Выберем записи по рубрике
+ * сначала записи из  Edge case(id = 21)
+ * */
