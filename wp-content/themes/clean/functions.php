@@ -21,7 +21,7 @@ if ( ! function_exists( 'clean_setup' ) ) :
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on clean, use a find and replace
 		 * to change 'clean' to the name of your theme in all the template files.
-		 */
+		 * */
 		load_theme_textdomain( 'clean', get_template_directory() . '/languages' );
 
         add_theme_support( 'post-formats', array( 'aside', 'gallery', 'image', 'video', 'audio' ) );
@@ -124,13 +124,59 @@ add_action( 'widgets_init', 'clean_widgets_init' );
 function clean_scripts() {
 	wp_enqueue_style( 'clean-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'clean-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+    /* Google Webfonts */
+    wp_enqueue_style( 'clean-google-font1', 'http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' );
+    wp_enqueue_style( 'clean-google-font2', 'http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,500' );
+    /* ниже подключаем локальные стили и скрипты */
+    wp_enqueue_style( 'clean-animate-style', get_template_directory_uri() . '/assets/css/animate.css' );
+    wp_enqueue_style( 'clean-icomoon-style', get_template_directory_uri() . '/assets/css/icomoon.css' );
+    wp_enqueue_style( 'clean-simple-line-icons-style', get_template_directory_uri() . '/assets/css/simple-line-icons.css' );
+    wp_enqueue_style( 'clean-style2', get_template_directory_uri() . '/assets/css/style.css' ); // слаг clean-style1 занят файлом style.css из корня проекта
 
-	wp_enqueue_script( 'clean-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+    /* далее подключаем скрипты в header*/
+    wp_enqueue_script( 'clean-modernizr', get_template_directory_uri() . '/assets/js/modernizr-2.6.2.min.j' );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+    /* далее подключаем скрипты в footer*/
+    /* Подключаем Last.ver - JQuery */
+    wp_deregister_script('jquery'); // Отключ. старую версию jQuery - Версия по умолч.
+    wp_register_script( // Регистрируем новую версию jquery
+        'jquery', // наименование
+        get_template_directory_uri() . '/assets/js/jquery-3.4.1.min.js',
+        array(), false, true
+    );
+
+    wp_enqueue_script(
+        'clean-jquery-easing',
+        get_template_directory_uri() . '/assets/js/jquery.easing.1.3.js',
+        array('jquery'), '', true
+    );
+
+    wp_enqueue_script(
+        'clean-bootstrap',
+        get_template_directory_uri() . '/assets/js/bootstrap.min.js',
+        array('jquery'), '', true
+    );
+
+    wp_enqueue_script(
+        'clean-jquery-waypoints',
+        get_template_directory_uri() . '/assets/js/jquery.waypoints.min.js',
+        array('jquery'), '', true
+    );
+
+    wp_enqueue_script(
+        'clean-main',
+        get_template_directory_uri() . '/assets/js/main.js',
+        array('jquery'), '', true
+    );
+
+/*скрипты ниже не понадобятся так как WP по умолч. уже предостав. много функционала*/
+//	wp_enqueue_script( 'clean-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+//
+//	wp_enqueue_script( 'clean-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+//
+//	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+//		wp_enqueue_script( 'comment-reply' );
+//	}
 }
 add_action( 'wp_enqueue_scripts', 'clean_scripts' );
 
