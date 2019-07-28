@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a50b7fde-ea10-4c22-9a74-bbedc250de66" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/clean/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/clean/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/clean/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/clean/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/clean/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/clean/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/themes/test/wp_conspest.docx" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/test/wp_conspest.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/test/~WRL2191.tmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/test/~WRL2411.tmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/test/~WRL2526.tmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/test/~WRL2690.tmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/test/~WRL3778.tmp" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,10 +26,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/clean/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
+            <state relative-caret-position="858">
               <caret line="59" column="81" lean-forward="true" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="81" />
             </state>
           </provider>
@@ -69,11 +62,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/clean/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+            <state relative-caret-position="220">
+              <caret line="10" column="80" lean-forward="true" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,6 +103,7 @@
         <option value="$PROJECT_DIR$/wp-content/themes/clean/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/clean/assets/css/style.css" />
         <option value="$PROJECT_DIR$/wp-content/themes/clean/header.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/clean/index.php" />
       </list>
     </option>
   </component>
@@ -126,8 +123,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1344" />
-    <option name="y" value="-21" />
+    <option name="x" value="1551" />
+    <option name="y" value="-25" />
     <option name="width" value="1117" />
     <option name="height" value="673" />
   </component>
@@ -213,18 +210,18 @@
       <workItem from="1564082516886" duration="147000" />
       <workItem from="1564082712148" duration="7131000" />
       <workItem from="1564116482060" duration="19195000" />
-      <workItem from="1564295667728" duration="2692000" />
+      <workItem from="1564295667728" duration="8142000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59577000" />
+    <option name="totallyTimeSpent" value="65027000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.32061762" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.19164395" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -292,6 +289,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
           <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -483,13 +483,6 @@
     <entry file="file://$PROJECT_DIR$/wp-content/themes/clean/screenshot.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/clean/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/clean/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -520,8 +513,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/clean/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
+        <state relative-caret-position="858">
           <caret line="59" column="81" lean-forward="true" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/clean/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-990" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/clean/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="80" lean-forward="true" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

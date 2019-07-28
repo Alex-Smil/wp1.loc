@@ -1,58 +1,32 @@
-<?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package clean
- */
+<?php get_header(); ?>
 
-get_header();
-?>
+    <div id="fh5co-portfolio">
+        <!--делаем кастомный запрос-->
+        <?php $query = new WP_Query( array(
+            'category_name' => 'home'
+        ) ); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+        <?php if($query->have_posts()) : $i = 1; while($query->have_posts()) : $query->the_post(); ?>
 
-		<?php
-		if ( have_posts() ) :
+            <?php if (has_post_thumbnail()) { // если лого есть, то использ. его адрес
+                $img_url = get_the_post_thumbnail_url();
+            } else { // если лого нет, то картинка по умолч.
+                $img_url = get_template_directory_uri() . '/assets/images/moon.jpg';
+            }?>
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
+            <div class="fh5co-portfolio-item <?php if ($i % 2 === 0) { echo 'fh5co-img-right'; } ?>">
+                <div class="fh5co-portfolio-figure animate-box" style="background-image: url(<?php echo $img_url; ?>);"></div>
+                <div class="fh5co-portfolio-description">
+                    <h2><?php the_title(); ?></h2>
+                    <?php the_content(''); ?>
+                    <p><a href="<?php the_permalink(); ?>" class="btn btn-primary"><?php _e('Read more', 'clean'); ?></a></p>
+                </div>
+            </div>
+        <?php $i++; endwhile; ?>
+        <?php else: ?>
+            <!-- no posts found -->
+        <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
+    </div>
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php
-get_footer();
+<?php get_footer();
