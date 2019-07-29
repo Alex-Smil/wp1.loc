@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a50b7fde-ea10-4c22-9a74-bbedc250de66" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/test/wp_conspest.docx" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/test/wp_conspest.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/test/languages/en_US.mo" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/test/languages/en_US.mo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/test/languages/en_US.po" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/test/languages/en_US.po" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -205,7 +206,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12899786" />
       <window_info anchor="bottom" id="TODO" order="6" />
