@@ -25,6 +25,28 @@ function clean_customize_register( $wp_customize ) {
 			'render_callback' => 'clean_customize_partial_blogdescription',
 		) );
 	}
+
+
+	/*
+	 * Секция в кастомайзере
+	 * для настройки рубрики записей
+	 * выводимых в <section> - portfolio
+	 * */
+    $wp_customize->add_section( 'clean_team_options', array(
+        'title'    => __('Theme options', 'clean'),
+        'priority' => 10 // Порядковый номер места среди других секций.
+    ) );
+
+    $wp_customize->add_setting( 'clean_home_category', array(
+        'default'   => '',
+        //'transport' => 'postMessage' // Здесь JS не совсем уместен
+    ) );
+
+    $wp_customize->add_control( 'clean_home_category', array(
+        'label'   => __('Category on Home Page', 'clean'),
+        'section' => 'clean_team_options', // id секции, куда поместить
+        'type'    => 'text' // by default
+    ) );
 }
 add_action( 'customize_register', 'clean_customize_register' );
 
