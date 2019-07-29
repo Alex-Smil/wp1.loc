@@ -51,6 +51,33 @@
     </div>
 </div>
 
+<?php
+/*
+ * Выводим список записей по рубрике,
+ * пользовательский цикл с использ объекта класса WP_Query
+ * */
+    $query = new WP_Query( array(
+        //'cat' => '21, 31', // ID рубрики
+        'category_name' => 'edge-case-2, markup',// выбирать записи можно указав слаг, вместо id
+        'posts_per_page' => -1, // кол-во записей в пагинации
+        'order_by' => 'title', // По какому элементу сортируем
+        'order' => 'ASC' // ASC - по возрастанию; DESC - по убыванию
+    ) );
+
+    //$query = new WP_Query( 'cat=21,31&posts_per_page=-1');
+
+    if($query->have_posts()) : while($query->have_posts()) : $query->the_post(); ?>
+        <!-- post -->
+        <h3><?php  the_title(); ?></h3>
+    <?php endwhile; ?>
+        <!-- post navigation -->
+    <?php else: ?>
+        <!-- no posts found -->
+    <?php endif;
+
+    wp_reset_postdata();
+?>
+
 <?php get_footer(); ?>
 
 
