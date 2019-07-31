@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-    <?php if ( is_front_page() && get_theme_mod('clean_home_category') )  : ?>
+    <?php if ( get_theme_mod('clean_home_category') )  : ?>
         <div id="fh5co-portfolio">
             <!--делаем кастомный запрос-->
             <?php $query = new WP_Query( array(
