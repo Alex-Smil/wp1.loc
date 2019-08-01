@@ -134,7 +134,7 @@ function clean_scripts() {
     wp_enqueue_style( 'clean-style2', get_template_directory_uri() . '/assets/css/style.css' ); // слаг clean-style1 занят файлом style.css из корня проекта
 
     /* далее подключаем скрипты в header*/
-    wp_enqueue_script( 'clean-modernizr', get_template_directory_uri() . '/assets/js/modernizr-2.6.2.min.j' );
+    wp_enqueue_script( 'clean-modernizr', get_template_directory_uri() . '/assets/js/modernizr-2.6.2.min.js' );
 
     /* далее подключаем скрипты в footer*/
     /* Подключаем Last.ver - JQuery */
@@ -148,25 +148,25 @@ function clean_scripts() {
     wp_enqueue_script(
         'clean-jquery-easing',
         get_template_directory_uri() . '/assets/js/jquery.easing.1.3.js',
-        array('jquery'), '', true
+        array('jquery'), filemtime( get_template_directory()), true
     );
 
     wp_enqueue_script(
         'clean-bootstrap',
         get_template_directory_uri() . '/assets/js/bootstrap.min.js',
-        array('jquery'), '', true
+        array('jquery'), filemtime( get_template_directory()), true
     );
 
     wp_enqueue_script(
         'clean-jquery-waypoints',
         get_template_directory_uri() . '/assets/js/jquery.waypoints.min.js',
-        array('jquery'), '', true
+        array('jquery'), filemtime( get_template_directory()), true
     );
 
     wp_enqueue_script(
         'clean-main',
         get_template_directory_uri() . '/assets/js/main.js',
-        array('jquery'), '', true
+        array('jquery'), filemtime( get_template_directory()), true
     );
 
 /*скрипты ниже не понадобятся так как WP по умолч. уже предостав. много функционала*/
