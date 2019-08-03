@@ -29,10 +29,11 @@
             <?php endif; ?>
             <?php wp_reset_postdata(); ?>
         </div>
+        <div class="clearfix"></div>
     <?php endif; ?>
 
     <!--Данную часть кода лучше выносить в отдельный файл (13:20 урок 5 часть 2)-->
-    <?php if(have_posts()) : while(have_posts()) : the_post(); ?>
+    <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
         <?php the_content(); ?>
     <?php endwhile; ?>
         <!-- post navigation -->
