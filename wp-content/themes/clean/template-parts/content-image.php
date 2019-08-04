@@ -9,6 +9,6 @@
 
 <div class="fh5co-portfolio-description">
     <h2><?php the_title(); ?></h2>
-    STANDART
+    IMAGE
     <?php the_content(); ?>
 </div>

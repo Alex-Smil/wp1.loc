@@ -110,8 +110,8 @@
 
 
 
-	
-	
+	/* My JS for single.php text */
+	$('body.single .fh5co-portfolio-description p').addClass('animate-box');
 
 	
 
