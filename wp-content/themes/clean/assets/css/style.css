@@ -8356,3 +8356,7 @@ a.btn:visited {
     color: #fff;
     background-color: #e32929;
 }
+
+#fh5co-header > .navbar li.current-lang a {
+  color: #e32929;
+}
